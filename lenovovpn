@@ -1,0 +1,1 @@
+/opt/app/openvpn/sbin/openvpn --config /opt/app/openvpn/etc/lenovo/lenovo.ovpn &

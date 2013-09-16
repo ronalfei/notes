@@ -1,0 +1,10 @@
+#!/bin/sh
+W=$1
+echo $W
+if [$W -eq ""]
+then
+	rdesktop -uwangfei6 -pqwe123QWE\!\@\# -g 1280x700 10.100.6.191
+else
+	rdesktop -uwangfei6 -pqwe123QWE\!\@\# -g 1230x$W 10.100.6.191
+fi
+

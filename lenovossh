@@ -1,0 +1,60 @@
+#!/usr/bin/expect -f 
+set HOST [lindex $argv 0]
+set PORT [lindex $argv 1]
+
+if { "$PORT" == "" } {
+	set PORT 22
+} else {
+	
+}
+
+spawn ssh hyena_@$HOST -p $PORT
+
+expect {
+	"*yes/no)?*"	{
+		send "yes\r"
+		exp_continue
+	} "*password:"	{
+		send "DoTa56Fl%\r"
+		expect "\$*"
+		send "su - \r"
+		expect "*assword:" {
+			send "TkB&nLK18$\r"
+			interact
+		} "密码*" {
+			send "TkB&nLK18$\r"
+			expect "*密码不正确*" {
+				send "su - \r"
+				expect "password:" {
+					send "lenovolabs\r"
+					interact
+				} "密码*" {
+					send "lenovolabs\r"
+					interact
+				}
+			}
+		}
+	} "*密码不正确*" {
+		send "su - \r"
+		expect "*assword:" {
+			send "lenovolabs\r"
+			interact
+		} "密码*" {
+			send "lenovolabs\r"
+			interact
+		}
+	} "timeout" {
+		send_user "connect to $HOST timeout"
+		exit 1
+	} "*ncorrect*" {
+		send_user "connect to $HOST timeout"
+		exit 2
+	} "*ermission*" {
+		send_user "connect to $HOST timeout"
+		exit 2
+	} eof {
+		exit 3
+	}
+}
+
+
