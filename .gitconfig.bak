@@ -1,0 +1,24 @@
+[user]
+    name = ronalfei
+    email = ronalfei@qq.com
+[http]
+    sslVerify = false
+[core]
+    gitproxy = gitproxy
+    editor = vim
+    autocrlf = input
+    safecrlf = true
+[merge]
+    tool = kdiff3
+[alias]
+    co = checkout
+    cm = commit
+    br = branch
+    bh = branch
+    st = status
+    last = log -1 HEAD
+    sw = checkout
+    rs = reset HEAD
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+[color]
+    ui = true
