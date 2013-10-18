@@ -15,21 +15,21 @@ expect {
 		send "yes\r"
 		exp_continue
 	} "*password:"	{
-		send "DoTa56Fl%\r"
+		send "123123%\r"
 		expect "\$*"
 		send "su - \r"
 		expect "*assword:" {
-			send "TkB&nLK18$\r"
+			send "123123\r"
 			interact
 		} "密码*" {
-			send "TkB&nLK18$\r"
+			send "12312318$\r"
 			expect "*密码不正确*" {
 				send "su - \r"
 				expect "password:" {
-					send "lenovolabs\r"
+					send "1234213\r"
 					interact
 				} "密码*" {
-					send "lenovolabs\r"
+					send "123123\r"
 					interact
 				}
 			}
@@ -37,10 +37,10 @@ expect {
 	} "*密码不正确*" {
 		send "su - \r"
 		expect "*assword:" {
-			send "lenovolabs\r"
+			send "123123\r"
 			interact
 		} "密码*" {
-			send "lenovolabs\r"
+			send "123123\r"
 			interact
 		}
 	} "timeout" {
